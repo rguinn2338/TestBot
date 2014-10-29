@@ -1,6 +1,7 @@
 package team.gif.templates.commands;
 
 import team.gif.templates.OI;
+import team.gif.templates.RobotMap;
 
 /**
  *
@@ -14,10 +15,14 @@ public class DriveLinear extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        RobotMap.leftEncoder.reset();
+        RobotMap.rightEncoder.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        drivetrain.getLeftDist();
+        drivetrain.getRightDist();
         drivetrain.moveLeft(OI.leftStick.getY());
         drivetrain.moveRight(OI.rightStick.getY());
     }
