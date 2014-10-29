@@ -19,6 +19,14 @@ public class Drivetrain extends Subsystem {
         RobotMap.frontRight.set(speed);
         RobotMap.rearRight.set(speed);
     }
+    
+    public double getLeftDist() {
+        return RobotMap.leftEncoder.get();
+    }
+    
+    public double getRightDist() {
+        return RobotMap.rightEncoder.get();
+    }
 
     public void initDefaultCommand() {
         setDefaultCommand(new DriveLinear());
